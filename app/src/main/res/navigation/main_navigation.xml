@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/startScreenFragment">
+    <fragment
+        android:id="@+id/startScreenFragment"
+        android:name="com.example.gamehelper.presentation.fragments.StartScreenFragment"
+        tools:layout="@layout/start_screen_fragment" >
+        <action
+            android:id="@+id/action_startScreenFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_startScreenFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="com.example.gamehelper.presentation.fragments.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/sign_up_screen_fragment" >
+        <action
+            android:id="@+id/action_signUpFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.gamehelper.presentation.fragments.SignInFragment"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/sign_in_screen_fragment" >
+        <action
+            android:id="@+id/action_signInFragment_to_signUpFragment"
+            app:destination="@id/signUpFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_mainScreenFragment2"
+            app:destination="@id/mainScreenFragment" />
+        <action
+            android:id="@+id/action_signInFragment_to_networkErrorFragment"
+            app:destination="@id/networkErrorFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainScreenFragment"
+        android:name="com.example.gamehelper.presentation.fragments.MainScreenFragment"
+        android:label="MainScreenFragment"
+        tools:layout="@layout/fragment_main_screen" >
+        <argument
+            android:name="user"
+            app:argType="com.example.gamehelper.domain.entity.User" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_listOfTemplatesScreenFragment"
+            app:destination="@id/listOfTemplatesScreenFragment" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_listOfMatches"
+            app:destination="@id/listOfGames" />
+        <action
+            android:id="@+id/action_mainScreenFragment_to_createTemplateFragment"
+            app:destination="@id/createTemplateFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfTemplatesScreenFragment"
+        android:name="com.example.gamehelper.presentation.fragments.ListOfTemplatesScreenFragment"
+        android:label="ListOfTemplatesScreenFragment"
+        tools:layout="@layout/fragment_list_of_templates_screen">
+        <argument
+            android:name="user_login"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_listOfTemplatesScreenFragment_to_createTemplateFragment"
+            app:destination="@id/createTemplateFragment" />
+        <argument
+            android:name="mode"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/createTemplateFragment"
+        android:name="com.example.gamehelper.presentation.fragments.CreateTemplateFragment"
+        android:label="CreateTemplateFragment"
+        tools:layout="@layout/fragment_create_template">
+        <argument
+            android:name="user_login"
+            app:argType="string" />
+        <argument
+            android:name="mode"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_createTemplateFragment_to_gameFragment"
+            app:destination="@id/gameFragment"
+            app:popUpTo="@id/mainScreenFragment" />
+        <argument
+            android:name="template"
+            app:argType="com.example.gamehelper.domain.entity.Template" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfGames"
+        android:name="com.example.gamehelper.presentation.fragments.ListOfGamesFragment"
+        android:label="ListOfGames"
+        tools:layout="@layout/fragment_list_of_matches">
+        <argument
+            android:name="user_login"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_listOfGames_to_gameStatsFragment"
+            app:destination="@id/gameStatsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/networkErrorFragment"
+        android:name="com.example.gamehelper.presentation.fragments.NetworkErrorFragment"
+        android:label="NetworkErrorFragment"
+        tools:layout="@layout/fragment_network_error"/>
+    <fragment
+        android:id="@+id/gameFragment"
+        android:name="com.example.gamehelper.presentation.fragments.GameFragment"
+        android:label="GameFragment"
+        tools:layout="@layout/fragment_game" >
+        <argument
+            android:name="settings"
+            app:argType="com.example.gamehelper.domain.entity.Template" />
+        <argument
+            android:name="Names"
+            app:argType="string[]" />
+    </fragment>
+    <fragment
+        android:id="@+id/gameStatsFragment"
+        android:name="com.example.gamehelper.presentation.fragments.GameStatsFragment"
+        android:label="GameStatsFragment"
+        tools:layout="@layout/fragment_game_stats">
+        <argument
+            android:name="GameStats"
+            app:argType="com.example.gamehelper.domain.entity.Game" />
+        <action
+            android:id="@+id/action_gameStatsFragment_to_listOfMatchesFragment"
+            app:destination="@id/listOfMatchesFragment" />
+        <argument
+            android:name="user_login"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/listOfMatchesFragment"
+        android:name="com.example.gamehelper.presentation.fragments.ListOfMatchesFragment"
+        android:label="ListOfMatchesFragment"
+        tools:layout="@layout/fragment_list_of_matches2">
+        <argument
+            android:name="game_name"
+            app:argType="string" />
+        <argument
+            android:name="user_name"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_listOfMatchesFragment_to_matchFragment"
+            app:destination="@id/matchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/matchFragment"
+        android:name="com.example.gamehelper.presentation.fragments.MatchFragment"
+        android:label="MatchFragment"
+        tools:layout="@layout/fragment_match">
+        <argument
+            android:name="Match"
+            app:argType="com.example.gamehelper.domain.entity.Match" />
+    </fragment>
+</navigation>

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "761168511567",
+    "project_id": "gamehelper-af012",
+    "storage_bucket": "gamehelper-af012.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:761168511567:android:13cb698b8069c40e9c603a",
+        "android_client_info": {
+          "package_name": "com.example.gamehelper"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "761168511567-3cv7jsve33a05q3637g1k2c133ipf4an.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.gamehelper",
+            "certificate_hash": "dff8fc9bf301ad7fc9f2995939e8588217bb60d9"
+          }
+        },
+        {
+          "client_id": "761168511567-1edn84cs0u3s9au0cflce886lcl61f1s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyASxDUKhq5PkZTC6sbPkBBJEU8gGSnsK3k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "761168511567-1edn84cs0u3s9au0cflce886lcl61f1s.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
